@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Recommendations</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="logo-badge">✦ Intelligent Recommendation System</div>
+    <h1>Recommendation System</h1>
+    <p class="subtitle">Tell us your taste. We find your next obsession.</p>
+  </header>
+
+  <div class="steps">
+    <div class="step active" id="step1"><div class="step-num">1</div><span>Choose</span></div>
+    <div class="step-line" id="line1"></div>
+    <div class="step" id="step2"><div class="step-num">2</div><span>Preferences</span></div>
+    <div class="step-line" id="line2"></div>
+    <div class="step" id="step3"><div class="step-num">3</div><span>Results</span></div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="section visible" id="s1">
+    <p class="section-label">Step 01</p>
+    <h2 class="section-title">What are you looking for?</h2>
+    <div class="category-grid">
+      <div class="cat-card" data-cat="movies" onclick="selectCategory('movies', this)">
+        <span class="cat-icon">🎬</span>
+        <div class="cat-name">Movies</div>
+        <div class="cat-desc">Discover films matched to your mood, genre taste, and viewing style.</div>
+        <span class="cat-tag">12 titles in library</span>
+      </div>
+      <div class="cat-card" data-cat="books" onclick="selectCategory('books', this)">
+        <span class="cat-icon">📚</span>
+        <div class="cat-name">Books</div>
+        <div class="cat-desc">Find your next read based on genre, reading pace, and desired mood.</div>
+        <span class="cat-tag">12 books in library</span>
+      </div>
+      <div class="cat-card" data-cat="travel" onclick="selectCategory('travel', this)">
+        <span class="cat-icon">✈️</span>
+        <div class="cat-name">Travel</div>
+        <div class="cat-desc">Get destination recommendations tailored to climate, budget &amp; vibe.</div>
+        <span class="cat-tag">12 destinations</span>
+      </div>
+    </div>
+    <div class="btn-row" style="margin-top:28px">
+      <button class="btn btn-primary" id="btn-to-prefs" onclick="goToPrefs()" disabled>Continue →</button>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="section" id="s2">
+    <p class="section-label">Step 02</p>
+    <h2 class="section-title" id="pref-title">Your Preferences</h2>
+    <div class="error-box" id="error-box"></div>
+    <div id="pref-form"></div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="goBack()">← Back</button>
+      <button class="btn btn-primary" onclick="submitPrefs()">Find Matches ✦</button>
+    </div>
+  </div>
+
+  <!-- Loading -->
+  <div class="loading-wrap" id="loading">
+    <div class="spinner"></div>
+    <div class="loading-text">Analyzing preferences...</div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="section" id="s3">
+    <div class="results-header">
+      <div>
+        <p class="section-label">Step 03 — Your Matches</p>
+        <div class="results-count" id="res-count"></div>
+        <div class="results-sub" id="res-sub"></div>
+      </div>
+      <button class="btn btn-ghost" onclick="startOver()">Start Over ↺</button>
+    </div>
+    <div class="rec-grid" id="rec-grid"></div>
+    <p class="footer-note">Powered by PRISM Matching Engine · All scores out of 100</p>
+  </div>
+
+</div>
+<script src="/static/js/app.js"></script>
+</body>
+</html>
